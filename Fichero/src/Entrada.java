@@ -1,9 +1,10 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Entrada {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // FILE -> fichero logico -> fisico
         // fichero logico
         // File ficheroSinPuntero = new File("/Users/borja/Documents/GitHub/ClaseAD-UNIR/T1/Fichero/src/resources/directorio/ejemplo_fichero.md");
@@ -19,7 +20,31 @@ public class Entrada {
         ficheroSinPuntero.list();
 
         // 1 -> Obtener todos los nombre de los ficheros del directorio llamado directorio
+
+        System.out.println("Nombre de los ficheros:");
+        File[] ficheros = ficheroSinPuntero.listFiles();
+        for (File fichero : ficheros) {
+            System.out.println(fichero.getName());
+        }
+
         // 2 -> Crear una subcarpeta en el directorio llamado directorio y crear en ella un fichero
+        File subcarpeta = new File("src/resources/directorio/subcarpeta");
+        if(!subcarpeta.exists()) {
+            subcarpeta.mkdir();
+            System.out.println("La carpeta ha sido creada");
+        } else {
+                System.out.println("La carpeta ya existe");
+            }
+
+        File fichero = new File("src/resources/directorio/subcarpeta/fichero");
+
+        if(!fichero.exists()){
+            fichero.createNewFile();
+            System.out.println("El fichero ha sido creado");
+        }else {
+            System.out.println("El fichero ya existe");
+        }
+
         //   -> Obtener todos los nombre de los ficheros del directorio llamado directorio y el subdirectorio creado
         // 3 -> Listar el nombre de todos los ficheros del SISTEMA ( C:/User o /Users )
 
@@ -34,4 +59,5 @@ public class Entrada {
             }
         }*/
     }
-}
+    }
+
