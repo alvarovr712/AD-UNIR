@@ -46,7 +46,17 @@ public class Entrada {
         }
 
         //   -> Obtener todos los nombre de los ficheros del directorio llamado directorio y el subdirectorio creado
+        File[] ficheros2 = subcarpeta.listFiles();
+        for (File fichero2 : ficheros2){
+            System.out.println(fichero2.getName());
+        }
         // 3 -> Listar el nombre de todos los ficheros del SISTEMA ( C:/User o /Users )
+        System.out.println("Los ficheros del sistema son:");
+        File ficheroC = new File("C:\\Users");
+        File[] ficheros3 = ficheroC.listFiles();
+        for (File fichero3 : ficheros3 ){
+            System.out.println(fichero3.getName());
+        }
 
         // RECURSIVIDAD
 
